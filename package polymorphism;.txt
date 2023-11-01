@@ -1,0 +1,165 @@
+package polymorphism;
+
+public class Date1 {
+
+		int dd;	
+		int mm;
+		int yy;
+	    
+	 public Date1()
+	 
+	 {
+		 
+		 
+	 }
+	 
+	 public Date1(int dd, int mm, int yy)
+	 {
+		 this.dd=dd;
+		 this.mm=mm;
+		 this.yy=yy;
+		 	 
+	 }
+
+	 public void showdate()
+	 {
+		 System.out.print(dd+"/"+mm+"/"+yy);
+	 }
+
+	@Override
+	public String toString() {
+		return "Date1 [dd=" + dd + ", mm=" + mm + ", yy=" + yy + "]";
+	}
+	 
+	 
+	
+	   }
+
+====================================================================================
+
+
+
+
+
+package polymorphism;
+
+
+
+public class Person1 extends Date1{
+
+	
+		   String name;
+		   Date1 bdate;
+		   
+		  public Person1()
+		  {
+			  
+			  
+		  }
+		
+		  public Person1(String name,  int dd,int mm,int yy) {
+				super(dd,mm,yy);
+
+				this.name = name;
+				bdate=new Date1(dd,mm,yy);
+				
+			}
+		  public void show()
+		  {
+			  System.out.println(name);
+			  System.out.println(bdate);  
+		  }
+		@Override
+		public String toString() {
+			return "Person1 [name=" + name + ", bdate=" + bdate + "]";
+		}	
+		  
+		 
+}
+
+=====================================================================================
+
+
+
+
+package polymorphism;                                                                                                                                                                                   
+                                                                                                                                                                                                        
+public class Emp1 extends Person1{                                                                                                                                                                      
+  int eid;                                                                                                                                                                                              
+ protected double salary;                                                                                                                                                                               
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+public Emp1()                                                                                                                                                                                           
+{                                                                                                                                                                                                       
+                                                                                                                                                                                                        
+}                                                                                                                                                                                                       
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+public Emp1(String name, int dd, int mm,int yy ,int eid,double salary) {                                                                                                                                
+	super(name, dd,mm,yy);                                                                                                                                                                              
+	// TODO Auto-generated constructor stub                                                                                                                                                             
+   this.eid=eid;                                                                                                                                                                                        
+   this.salary=salary;                                                                                                                                                                                  
+                                                                                                                                                                                                        
+}                                                                                                                                                                                                       
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+public void show()                                                                                                                                                                                      
+{                                                                                                                                                                                                       
+	super.show();                                                                                                                                                                                       
+	System.out.println(eid);                                                                                                                                                                            
+    System.out.println(salary);                                                                                                                                                                         
+}                                                                                                                                                                                                       
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+	                                                                                                                                                                                                    
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+@Override                                                                                                                                                                                               
+public String toString() {                                                                                                                                                                              
+	return "Emp1 [eid=" + eid + ", salary=" + salary + ", name=" + name + ", bdate=" + bdate + ", dd=" + dd + ", mm="                                                                                   
+			+ mm + ", yy=" + yy + ", toString()=" + super.toString() ;                                                                                                                                  
+}                                                                                                                                                                                                       
+                                                                                                                                                                                                        
+public  double calsalary()                                                                                                                                                                              
+{                                                                                                                                                                                                       
+	return salary;                                                                                                                                                                                      
+}                                                                                                                                                                                                       
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+}        
+
+
+
+=======================================================================================
+
+
+
+
+package polymorphism;
+
+public class DemoEmp {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Emp1 E1=new Emp1("manish",5,10,1998,6969,140000.00);
+		E1.show();
+		System.out.println("===================================================================================");
+	   System.out.println(E1);
+		
+	}
+
+}
+                                                                                                                                                                                               
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        
+                                                                                                                                                                                                        

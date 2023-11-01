@@ -1,0 +1,231 @@
+package polymorphism;                                                                                                                    
+                                                                                                                                         
+public class Emp1 extends Person1{                                                                                                       
+  int eid;                                                                                                                               
+ protected double salary;                                                                                                                
+                                                                                                                                         
+                                                                                                                                         
+public Emp1()                                                                                                                            
+{                                                                                                                                        
+                                                                                                                                         
+}                                                                                                                                        
+                                                                                                                                         
+                                                                                                                                         
+public Emp1(String name, int dd, int mm,int yy ,int eid,double salary) {                                                                 
+	super(name, dd,mm,yy);                                                                                                               
+	// TODO Auto-generated constructor stub                                                                                              
+   this.eid=eid;                                                                                                                         
+   this.salary=salary;                                                                                                                   
+                                                                                                                                         
+}                                                                                                                                        
+                                                                                                                                         
+                                                                                                                                         
+public void show()                                                                                                                       
+{                                                                                                                                        
+	super.show();                                                                                                                        
+	System.out.println(eid);                                                                                                             
+    System.out.println(salary);                                                                                                          
+}                                                                                                                                        
+                                                                                                                                         
+                                                                                                                                         
+	                                                                                                                                     
+                                                                                                                                         
+                                                                                                                                         
+                                                                                                                                         
+                                                                                                                                         
+@Override                                                                                                                                
+public String toString() {                                                                                                               
+	return "Emp1 [eid=" + eid + ", salary=" + salary + ", name=" + name + ", bdate=" + bdate + ", dd=" + dd + ", mm="                    
+			+ mm + ", yy=" + yy + ", toString()=" + super.toString() ;                                                                   
+}                                                                                                                                        
+                                                                                                                                         
+public  double calsalary()                                                                                                               
+{                                                                                                                                        
+	return salary;                                                                                                                       
+}                                                                                                                                        
+                                                                                                                                         
+                                                                                                                                         
+}                                                                                                                                        
+                                                                                                                                         
+                                                                                                                                         
+                                                                                                                                         
+                                                                                                                                         
+                                                                                                                                         
+                                                                                                                                         
+                                                                                                                                         
+                                                                                                                                         
+                                                                                                                                         
+
+
+
+=============================================================================================
+
+
+
+
+package polymorphism;
+
+public class Salesmanager extends Emp1 {
+
+	private  double target;
+	private double incentive;
+	
+	
+	public Salesmanager() {
+		super();
+	}
+
+
+	public Salesmanager(String name , int dd, int mm,  int yy, int eid, int Salary,double target, double incentive) 
+	{
+		super( name , dd,  mm,  yy,  eid,  Salary);
+		this.target = target;
+		this.incentive = incentive;
+	}
+
+	public void show() {
+		super.show();   //name,bdate,id,sal
+		System.out.println("Target : "+target);
+		System.out.println("Incentive : "+incentive);
+	}
+	@Override
+	public String toString() {
+		return "Salesmanager [target=" + target + ", incentive=" + incentive + "]";
+	}
+	
+	public double calSalary() {
+		//basic + incentive
+		//basic + basic*incentive/100
+		//return super.calSalary()+(target*incentive/100);
+		return salary + (target*incentive/100);
+	}	
+}
+
+
+=======================================================================================
+
+
+
+package polymorphism;
+
+public class Programmer extends Emp1 
+{
+	private double extrahours;
+	private double chargesperhour;
+
+	public Programmer() 
+  {
+	super();
+  }
+	
+   public Programmer(String name , int dd, int mm,  int yy, int eid, int Salary,double target, double incentive,double extrahours, double chargesperhour) {
+		super( name , dd,  mm,   yy,  eid,  Salary);
+		this.extrahours = extrahours;
+		this.chargesperhour = chargesperhour;
+	}
+   public void show()
+   {  super.show();
+	   System.out.println(extrahours);
+	   System.out.println(chargesperhour);
+   }
+
+@Override
+    public String toString()
+   {
+	return "Programmer [extrahours=" + extrahours + ", chargesperhour=" + chargesperhour + "]";
+   }
+
+public double calSalary() {
+	//basic + extra charges
+	//basic + extraHours*chargesPerHour
+	//return super.calSalary()+ (extraHours*chargePerHour);
+	return salary+(extrahours*chargesperhour);
+}
+
+
+}
+
+
+=========================================================================================
+
+
+
+
+package polymorphism;
+
+public class Admin extends Emp1 {
+  double bonus;
+
+  public Admin()
+  {
+	super();
+  }
+
+public Admin(String name,int dd,int mm,int yy, int eid, int Salary,double target, double incentive,double bonus) 
+
+	{
+		super(name , dd,  mm,   yy,  eid,  Salary);
+		this.bonus = bonus;
+	}
+
+public void show() 
+	{
+	     super.show();
+	     System.out.println(bonus);
+		
+	}
+
+
+
+@Override
+public String toString() {
+	return "Admin [bonus=" + bonus + ", eid=" + eid + ", salary=" + salary + ", name=" + name + ", bdate=" + bdate
+			+ ", dd=" + dd + ", mm=" + mm + ", yy=" + yy + ", calSalary()=" + calSalary() + ", toString()="
+			+ super.toString() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
+}
+
+public double calSalary() 
+	{
+		//basic + bonus		
+		//return super.calSalary()+ bonus;
+	   return salary+bonus;
+}
+  
+  
+  
+}
+
+
+
+=================================================================================================
+
+
+
+package polymorphism;
+
+public class DemoAdmin
+{
+	/*public static void main(String[] args)
+	   {
+		// TODO Auto-generated method stub
+
+		Admin A1=new Admin ("manish",5,10,1998,6969,14000000,2000000,150000,20000);
+		A1.show();
+		System.out.println("===================================================================================");
+	   System.out.println(A1);
+		
+	}*/
+	
+	public static void main(String [] args)
+		 {	Admin[]A1=new Admin[3];
+			A1[0]=new Admin("manish",5,10,1998,6969,14000000,2000000,150000,20000);
+			 A1[1]=new Admin("Manish",26,9,1998,6969,1300000,15000000,300000,480000);
+			 A1[2]=new Admin("Manish",26,9,1998,6969,144005555,1600000,600000,590000);
+			 for(int i=0;i<A1.length;i++)
+			 {
+			 System.out.println(A1[i].calSalary());
+	         }
+		 }
+		
+}
+
